@@ -1,7 +1,7 @@
 
 #include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
+#include <stdlib.h>
+#include <string.h>
 
 // 📇 Estrutura (struct) para representar uma Carta de Cidade
 typedef struct {
