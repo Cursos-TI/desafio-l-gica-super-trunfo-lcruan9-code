@@ -12,8 +12,11 @@ typedef struct {
     double area;           // Atributo 2: Área (km²)
     double pib;            // Atributo 3: PIB (em bilhões, R$)
     int numPontosTuristicos; // Atributo 4: Número de pontos turísticos
+    float dencidade; // 
+    float pibpc; // 
+    
 } CartaCidade;
-
+  
 // --- Função para Cadastrar uma Carta ---
 void cadastrarCarta(CartaCidade *carta, int numero) {
     printf("\n--- 📝 Cadastro da Carta %d ---\n", numero);
@@ -42,6 +45,10 @@ void cadastrarCarta(CartaCidade *carta, int numero) {
     
     printf("Número de Pontos Turísticos: ");
     scanf("%d", &carta->numPontosTuristicos);
+
+    carta->dencidade = (float)((double)carta->populacao / carta->area);
+
+    carta->pibpc = (float)(carta->pib / carta->populacao);
 }
 
 // --- Função para Exibir uma Carta ---
@@ -51,10 +58,13 @@ void exibirCarta(const CartaCidade *carta) {
     printf("    * Área: %.2lf km²\n", carta->area);
     printf("    * PIB: R$ %.2lf bilhões\n", carta->pib);
     printf("    * Pontos Turísticos: %d\n", carta->numPontosTuristicos);
+    printf("    * PIB per Capita: %f\n", carta->pibpc);
+    printf("    * Dencidade Populacional: %f\n", carta->dencidade);
 }
 
 // --- Função Principal ---
 int main() {
+
     CartaCidade carta1, carta2;
     
     // 1. 📝 Cadastro de Cartas
